@@ -1,0 +1,38 @@
+ 
+def att_decode_sequence(input_seq, encoder_model, decoder_model, att_model):
+    return_seq, states_h, states_c = encoder_model.predict(input_seq)
+    att_prob = att_model.predict(return_seq)    
+    target_seq = np.zeros((1, 1, num_decoder_tokens))
+    target_seq[0, 0, tokenizer.word_index['bos']] = 1
+    stop_condition = False
+    decoded_sentence = []
+    seq_length = 0
+    while not stop_condition:
+        output_tokens, h, c = decoder_model.predict(
+            [target_seq] + [states_h, states_c])
+        att_p = att_prob[0][seq_length].reshape(1,1,-1)
+        # Sample a token
+        out_prob = att_p * output_tokens
+        sampled_token_index = np.argmax(out_prob[0, -1, :])
+        if sampled_token_index == 0:
+            sampled_char = ''
+        else:
+            sampled_char = list(tokenizer.word_index.keys())[list(tokenizer.word_index.values()).index(sampled_token_index)]
+        decoded_sentence.append(sampled_char)
+ 
+        # Exit condition: either hit max length
+        # or find stop character.
+        if (sampled_char == 'eos' or
+           len(decoded_sentence) > 34):
+            stop_condition = True
+            seq_length = 0
+ 
+        # Update the target sequence (of length 1).
+        target_seq = np.zeros((1, 1, num_decoder_tokens))
+        target_seq[0, 0, sampled_token_index] = 1.
+ 
+        # Update states
+        states_value = [h, c]
+        seq_length = seq_length + 1
+ 
+    return decoded_sentence

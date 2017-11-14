@@ -1,0 +1,44 @@
+import urllib, json
+from datetime import datetime
+ 
+data = 0
+result = 0
+ 
+f = open('last.txt', 'r')
+last = float(f.read())
+f.close
+ 
+endpoint="http://195.230.113.156:8080/json.htm?type=devices&rid=104"
+response = urllib.urlopen(endpoint)
+json_data = json.loads(response.read())
+data = float(json_data['result'][0]["Data"].split(' ')[0])
+ 
+if data <= 10:
+    result_raw = result = 100
+elif data >= 90:
+    result_raw = result = 0
+else:
+    result_raw = result = 100 - (data - 10)*0.0125*100
+ 
+result = result if (result - last < 15 and result - last > -15) else last
+ 
+f = open('last.txt', 'w')
+f.write(str(result))
+f.close
+ 
+f = open('log', 'a')
+f.write("----------------------\n")
+if result_raw != result:
+    f.write("!!! Uzyto poprzednich danych z powodu zbyt duzej rozbieznosci !!!")
+    f.write("!!! Prawdziwa wartosc " + str(result_raw) + " !!!")
+f.write(str(datetime.now()) + "\n")
+f.write("Dane: "+str(data) + "\n")
+f.write("Wynik: "+str(result) + "\n")
+f.close
+ 
+print("----------------------")
+print(datetime.now())
+print("Dane: "+str(data))
+print("Wynik: "+str(result))
+ 
+urllib.urlopen("http://195.230.113.156:8080/json.htm?type=command&param=udevice&idx=189&nvalue=0&svalue="+str(result))

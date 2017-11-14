@@ -1,0 +1,34 @@
+#EXTM3U
+#EXTINF:0,AMC
+http://w03.duoplay.xyz:80/071/myStream/live.m3u8
+#EXTINF:0,ANIMAL PLANET
+http://w04.duoplay.xyz:80/100/myStream/live.m3u8
+#EXTINF:0,AXN
+http://w01.duoplay.xyz:80/016/myStream/live.m3u8
+#EXTINF:0,BAND SPORTS
+http://w01.duoplay.xyz:80/010/myStream/live.m3u8
+#EXTINF:0,BIS
+http://w02.duoplay.xyz:80/059/myStream/live.m3u8
+#EXTINF:0,BOOMERANG
+http://w03.duoplay.xyz:80/091/myStream/live.m3u8
+#EXTINF:0,CANAL SONY
+http://w01.duoplay.xyz:80/031/myStream/live.m3u8
+#EXTINF:0,CANAL VIVA
+http://w03.duoplay.xyz:80/079/myStream/live.m3u8
+#EXTINF:0,CARTOON NETWORK
+http://w01.duoplay.xyz:80/027/myStream/live.m3u8
+#EXTINF:0,CINE+
+http://189.86.89.116:80/hls-live/livecm/_definst_/liveevent/livestream.m3u8
+#EXTINF:0,CINEMAX
+http://w01.duoplay.xyz:80/018/myStream/live.m3u8
+#EXTINF:0,CLASSIQUE TV
+http://45.43.208.2:1935/classique/classique/live.m3u8
+#EXTINF:0,COMBATE
+http://w03.duoplay.xyz:80/074/myStream/live.m3u8
+#EXTINF:0,DISCOVERY CHANNEL
+http://w03.duoplay.xyz:80/066/myStream/live.m3u8
+#EXTINF:0,DISCOVERY HOME & HEALTH
+http://w03.duoplay.xyz:80/078/myStream/live.m3u8
+#EXTINF:0,DISCOVERY KIDS
+http://w02.duoplay.xyz:80/061/myStream/live.m3u8
+#EXTINF:0,DISNEY CHANNEL

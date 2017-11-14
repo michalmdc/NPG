@@ -1,0 +1,63 @@
+# coding: utf-8
+ 
+# Non-recursive function to check if a string is palindrome (without loop)
+ 
+def check_palindrome_1(input_str, flag = False):
+    input_str = input_str.strip()
+    input_str = filter(lambda ch: ch not in " \t\n,,.?!;:()[]{}-/\'\"", input_str)
+    if not input_str:
+        return False
+    if flag:
+        input_str = input_str.lower()
+    return input_str == input_str[::-1]
+ 
+ 
+# Recursive function  to check if a string is palindrome (without loop)
+ 
+def check(input_str, start_pos, end_pos, counter):
+    if start_pos > end_pos:
+        if  counter > 0:
+            return True
+        else:
+            return False
+    elif input_str[start_pos].isalnum() == False:
+        return check(input_str, start_pos + 1, end_pos, counter)
+    elif input_str[end_pos].isalnum() == False:
+        return check(input_str, start_pos, end_pos - 1, counter)
+    elif input_str[start_pos] != input_str[end_pos]:
+        return False
+    else:
+        counter += 1
+        return check(input_str, start_pos + 1, end_pos - 1, counter)
+ 
+def check_palindrome_2(input_str, register = False):
+    input_str = input_str.strip()
+    counter = 0;
+    if not input_str:
+        return False
+    elif register:
+        return check(input_str.lower(), 0, len(input_str)-1, counter)
+    else:
+        return check(input_str, 0, len(input_str)-1, counter)
+ 
+ 
+ 
+# Test for russian and latin strings
+ 
+def test(fun, input_strings):
+    print "\nTest (register is ignored)"
+    for x in input_strings:
+        x = unicode(x, "utf-8")
+        print x + " - " + str(fun(x))
+ 
+    print "\nTest (register isn't ignored)"
+    for x in input_strings:
+        x = unicode(x, "utf-8")
+        print x + " - " +  str(fun(x, True))
+ 
+ 
+if __name__ == "__main__":
+    test_data = [" " , "  a----b     a,ca   ba??", "Aba,ca   Ba??", "? ???? ????? ... ?? ???? ????????", "(),, ,,()", "a(),,a  ,,(a)"]
+   
+    test(check_palindrome_1, test_data)
+    test(check_palindrome_2, test_data)

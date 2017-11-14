@@ -1,0 +1,38 @@
+from re import match
+ 
+def whichLetter(words, guessed):
+   
+    letters = ""
+    for word in words:
+        letters += "".join(set(word))
+    counts = []
+    for L in "abcdefghijklmnopqrstuvwxyz":
+        counts.append( (letters.count(L), L) )
+    counts.sort(reverse=True)
+    for C in counts:
+        if not C[1] in guessed:
+            return C[1]
+ 
+def filterWords(old_words, pattern, guessed):
+ 
+    new_words = []
+    UNH = "".join(set(pattern.replace(".","")))
+    NOP = ""
+    for L in guessed:
+        if not L in UNH:
+            NOP += L
+    for word in old_words:
+        if match(pattern, word):
+            valid = True
+            for L in UNH:
+                if pattern.count(L) != word.count(L):
+                    valid = False
+                    break
+            if valid:
+                for N in NOP:
+                    if N in word:
+                        valid = False
+                        break
+            if valid:
+                new_words.append(word)
+    return new_words

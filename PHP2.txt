@@ -1,0 +1,31 @@
+-- phpMyAdmin SQL Dump
+-- version 3.4.11.1deb2+deb7u8
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Czas wygenerowania: 12 Lis 2017, 00:12
+-- Wersja serwera: 5.5.58
+-- Wersja PHP: 5.4.45-0+deb7u11
+ 
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+ 
+ 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+ 
+--
+-- Baza danych: `svr31113`
+--
+ 
+-- --------------------------------------------------------
+ 
+--
+-- Struktura tabeli dla tabeli `Users`
+--
+ 
+CREATE TABLE IF NOT EXISTS `Users` (
+  `Name` varchar(225) NOT NULL,
+  `Rank` varchar(225) NOT NULL,

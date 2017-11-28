@@ -2,6 +2,9 @@
 -- version 3.4.11.1deb2+deb7u8
 -- http://www.phpmyadmin.net
 --
+
+######### ZMIANY #########
+
 -- Host: localhost
 -- Czas wygenerowania: 12 Lis 2017, 00:12
 -- Wersja serwera: 5.5.58

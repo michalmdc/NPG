@@ -16,6 +16,8 @@ def att_decode_sequence(input_seq, encoder_model, decoder_model, att_model):
         sampled_token_index = np.argmax(out_prob[0, -1, :])
         if sampled_token_index == 0:
             sampled_char = ''
+
+77777
         else:
             sampled_char = list(tokenizer.word_index.keys())[list(tokenizer.word_index.values()).index(sampled_token_index)]
         decoded_sentence.append(sampled_char)

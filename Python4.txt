@@ -7,6 +7,9 @@ def check_palindrome_1(input_str, flag = False):
     input_str = filter(lambda ch: ch not in " \t\n,,.?!;:()[]{}-/\'\"", input_str)
     if not input_str:
         return False
+
+# TO NIE ZADZIALA
+
     if flag:
         input_str = input_str.lower()
     return input_str == input_str[::-1]

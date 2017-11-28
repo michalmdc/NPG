@@ -8,6 +8,8 @@ f = open('last.txt', 'r')
 last = float(f.read())
 f.close
  
+SLABO##########
+
 endpoint="http://195.230.113.156:8080/json.htm?type=devices&rid=104"
 response = urllib.urlopen(endpoint)
 json_data = json.loads(response.read())

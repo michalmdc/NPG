@@ -1,5 +1,9 @@
 #EXTM3U
 #EXTINF:0,AMC
+
+ZMIANY!!!!!!
+
+
 http://w03.duoplay.xyz:80/071/myStream/live.m3u8
 #EXTINF:0,ANIMAL PLANET
 http://w04.duoplay.xyz:80/100/myStream/live.m3u8

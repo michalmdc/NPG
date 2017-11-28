@@ -20,6 +20,9 @@ def att_decode_sequence(input_seq, encoder_model, decoder_model, att_model):
             sampled_char = list(tokenizer.word_index.keys())[list(tokenizer.word_index.values()).index(sampled_token_index)]
         decoded_sentence.append(sampled_char)
  
+
+################################################
+
         # Exit condition: either hit max length
         # or find stop character.
         if (sampled_char == 'eos' or

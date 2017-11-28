@@ -8,6 +8,8 @@ def check_palindrome_1(input_str, flag = False):
     return input_str == input_str[::-1]
  
  
+ZMIANY !!!!!
+
 # Recursive function  to check if a string is palindrome (without loop)
  
 def check(input_str, start_pos, end_pos, counter):

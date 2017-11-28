@@ -12,6 +12,10 @@ def whichLetter(words, guessed):
     for C in counts:
         if not C[1] in guessed:
             return C[1]
+
+
+
+PROJEKT##################
  
 def filterWords(old_words, pattern, guessed):
  

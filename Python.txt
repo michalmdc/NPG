@@ -13,6 +13,8 @@ def whichLetter(words, guessed):
         if not C[1] in guessed:
             return C[1]
  
+66666
+
 def filterWords(old_words, pattern, guessed):
  
     new_words = []

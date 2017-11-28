@@ -11,6 +11,7 @@ def check_palindrome_1(input_str, flag = False):
         input_str = input_str.lower()
     return input_str == input_str[::-1]
  
+999999
  
 # Recursive function  to check if a string is palindrome (without loop)
  
